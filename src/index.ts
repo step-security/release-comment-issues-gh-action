@@ -266,8 +266,8 @@ async function hasExistingComment(
       issue_number: issueNumber,
     });
 
-    return commentList.some((comment) =>
-      comment.body.startsWith(RELEASE_COMMENT_HEADING)
+    return commentList.some((comment: { body?: string | null }) =>
+      comment.body?.startsWith(RELEASE_COMMENT_HEADING)
     );
   } catch (error) {
     console.error(
